@@ -2,598 +2,218 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>PIA: Personalized Image Animator</title>
-<link href="./DreamBooth_files/style.css" rel="stylesheet">
+<link href="./src/style.css" rel="stylesheet">
 </head>
 
 <body>
 <div class="content">
   <h1><strong>PIA: Your Personalized Image Animator <br> via Plug-and-Play Modules in Text-to-Image Models</strong></h1>
+  <div>
+    <p id="authors">
+      <a>Yiming Zhang <sup>1 2 † </sup></a>
+      <a>Zhening Xing <sup>1 † </sup></a>
+      <a>Yanhong Zeng <sup>1 </sup></a>
+      <a>Youqing Fang <sup>3 </sup></a> 
+      <a>Kai Chen <sup>* </sup></a>
 
+      <span style="font-size: 16px"><br>
+        <sup>1</sup> Shanghai AI Laboratory, 
+        <sup>2</sup> Dalian University of Technology,
+        <sup>3</sup> Anhui University <br>
+        <sup>†</sup> Equal contribution,
+        <sup>*</sup> Corresponding author
+      </span> 
+
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <a target="_blank" href="https://www.shlab.org.cn/">
+      <img src="src/img/PJlab.jpg" alt="Institution" style="width: auto; height: 114px;">
+    </a>
+  </div>
+  <font size="+2">
+    <div style="text-align: center; display: flex; justify-content: space-around; margin: 20px 200px;">
+      <a target="_blank", href="https://arxiv.org">
+        <img src="src/img/th.png" alt="arxiv", style="width: 21px;">[Paper]
+      </a>
+      <a target="_blank", href="https://github.com">
+        <img src="src/img/github.png" alt="github", style="width: 21px;">[Code]
+      </a>
+      <a target="_blank", href="https://openxlab.org.cn/">
+        <img src="src/img/demo.ico" alt="openxlab", style="width: 21px;">[Demo]
+      </a>
+    </div>
+  </font>
+  <p>
+    <b><span style="color: #f14040dc">P</span><span style="color: #05c20fee">I</span><span style="color: #3792e7e5">A</span></b> is
+    a <b style="color:#f14040dc">P</b>ersonalized <b style="color: #05c20fee">I</b>mage <b style="color: #3792e7e5">A</b>nimator
+    that excels in aligning with condition images, achieving motion 
+    controllability by text, and the compatibility with various personalized T2I models without specific tuning. 
+  </p>
+  <div style="text-align: center;">
+    <video width="640" height="480" controls="">
+          <source src="" type="video/mp4">
+          Your browser does not support the video tag.
+    </video>
+  </div>
 </div>
-<!-- <div class="content">
-  <h2>AnimateBench</h2>
-  <p class="dreambooth">Base Model: Realistic Vision</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/0.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/0.gif" alt="Image">
-      <div class="caption">1man is walking, b&w photo </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/1.gif" alt="Image">
-      <div class="caption">1man is smiling, b&w photo</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/2.gif" alt="Image">
-      <div class="caption">1man, raining, b&w photo</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/3.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/3.gif" alt="Image">
-      <div class="caption">walking, 1rabbit </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/4.gif" alt="Image">
-      <div class="caption">Raining, 1rabbit</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/5.gif" alt="Image">
-      <div class="caption">Fire, 1rabbit</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/6.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/6.gif" alt="Image">
-      <div class="caption">raining, b&w photo of old house </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/7.gif" alt="Image">
-      <div class="caption">Lightning, b&w photo of old house</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/8.gif" alt="Image">
-      <div class="caption">b&w photo of old house, in the wind.</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/9.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/9.gif" alt="Image">
-      <div class="caption">1girl is smiling, city street, neon, fog, volumetric</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/10.gif" alt="Image">
-      <div class="caption">1girl is crying, city street, neon, fog, volumetric</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/11.gif" alt="Image">
-      <div class="caption">1girl is walking, city street, neon, fog, volumetric</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/12.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/12.gif" alt="Image">
-      <div class="caption">lightning, lighthouse</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/13.gif" alt="Image">
-      <div class="caption">raining, lighthouse</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/14.gif" alt="Image">
-      <div class="caption">fireworks, lighthouse</div>
-    </div>
+<div class="content">
+  <h2 style="text-align:center"><strong>Abstract</strong></h2>
+  <p>
+    Recent advancements in personalized text-to-image (T2I) models have revolutionized content creation, 
+    empowering non-experts to generate stunning images with unique styles. 
+    While promising, adding realistic motions into these personalized images by text poses significant 
+    challenges in preserving distinct styles, high-fidelity details, and achieving motion controllability 
+    by text. In this paper, we present <b><span style="color: #f14040dc">P</span><span style="color: #05c20fee">I</span><span style="color: #3792e7e5">A</span></b>,
+    a <b style="color:#f14040dc">P</b>ersonalized <b style="color: #05c20fee">I</b>mage <b style="color: #3792e7e5">A</b>nimator 
+    that excels in aligning with condition images, achieving motion controllability by text, 
+    and the compatibility with various personalized T2I models without specific tuning. To achieve these goals, 
+    PIA builds upon a base T2I model with well-trained temporal alignment layers, 
+    allowing for the seamless transformation of any personalized T2I model into an image animation model. 
+    A key component of PIA is the introduction of the condition module, 
+    which utilizes the condition frame and inter-frame affinity as input to transfer appearance information 
+    guided by the affinity hint for individual frame synthesis in the latent space. 
+    This design mitigates the challenges of appearance-related image alignment within
+    and allows for a stronger focus on aligning with motion-related guidance. 
+  </p>
+  <div id="teasers">
+      <img src="src/img/teaser.gif", style="width: 100%;">
+      <figcaption><p>Given an elaborated image generated by a personalized text-to-image model, the proposed 
+        <b><span style="color: #f14040dc">P</span><span style="color: #05c20fee">I</span><span style="color: #3792e7e5">A</span></b>
+        animates it with realistic motions according to different text prompts while preserving the 
+        original distinct styles and high-fidelity details. </p></figcaption>
+  </div>
 </div>
-<p class="dreambooth">Base Model: ToonYou</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/15.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/15.gif" alt="Image">
-      <div class="caption">1man is smiling, masterpiece, best quality, 1boy, afro, dark skin, playing guitar, concert, upper body, sweat, stage lights, oversized hawaiian shirt, intricate, print, pattern, happy, necklace, bokeh, jeans, drummer, dynamic pose</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/16.gif" alt="Image">
-      <div class="caption">1man is crying, masterpiece, best quality, 1boy, afro, dark skin, playing guitar, concert, upper body, sweat, stage lights, oversized hawaiian shirt, intricate, print, pattern, happy, necklace, bokeh, jeans, drummer, dynamic pose</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/17.gif" alt="Image">
-      <div class="caption">1man is singing, masterpiece, best quality, 1boy, afro, dark skin, playing guitar, concert, upper body, sweat, stage lights, oversized hawaiian shirt, intricate, print, pattern, happy, necklace, bokeh, jeans, drummer, dynamic pose</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/18.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/18.gif" alt="Image">
-      <div class="caption">1girl is sleeping, best quality, masterpiece, 1boy, formal, abstract, looking at viewer, masculine, marble pattern</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/19.gif" alt="Image">
-      <div class="caption">1girl is laughing, best quality, masterpiece, 1boy, formal, abstract, looking at viewer, masculine, marble pattern</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/20.gif" alt="Image">
-      <div class="caption">1girl is crying, best quality, masterpiece, 1girl, looking at viewer, blurry background, upper body, contemporary, dress</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/21.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/21.gif" alt="Image">
-      <div class="caption">1man is crying, best quality, masterpiece, 1boy, formal, abstract, looking at viewer, masculine, marble pattern</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/22.gif" alt="Image">
-      <div class="caption">1man is smiling, best quality, masterpiece, 1boy, formal, abstract, looking at viewer, masculine, marble pattern</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/23.gif" alt="Image">
-      <div class="caption">1man is talking, best quality, masterpiece, 1boy, formal, abstract, looking at viewer, masculine, marble pattern</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/24.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/24.gif" alt="Image">
-      <div class="caption">1girl is crying with short ginger hair smiling, standing in the flower field</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/25.gif" alt="Image">
-      <div class="caption">1girl in the wind, In the field of blooming ginger and white flowers, the starry is shining</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/26.gif" alt="Image">
-      <div class="caption">1girl is smiling, In the field of blooming ginger and white flowers</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/27.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/27.gif" alt="Image">
-      <div class="caption">clouds floating</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/28.gif" alt="Image">
-      <div class="caption">raining</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/29.gif" alt="Image">
-      <div class="caption">lightning</div>
-    </div>
+<div class="content">
+  <h2 style="text-align:center"><strong>Method</strong></h2>
+  <p>
+  <b><span style="color: #f14040dc">P</span><span style="color: #05c20fee">I</span><span style="color: #3792e7e5">A</span></b>
+   consists of a text-to-image (T2I) model, well-trained temporal alignment layers (TA), 
+   and a new condition module W<sub>cond</sub> responsible for encoding the condition image z<sup>I</sup>
+   and inter-frame affinity s<sup>{1:F}</sup>. In particular, the T2I model consists of U-Net blocks, 
+   including a ResBlock (Res), a self-attention layer (SA), and a cross-attention layer (CA), as depicted in (b).
+    During training, the condition module learns to leverage the affinity hints and incorporate appearance information 
+    from the condition images, facilitating image alignment and enabling a stronger emphasis on motion-related alignment. 
+    </p>
+  <img src="src/img/method.jpg" alt="" style="width: 100%;">
 </div>
-<p class="dreambooth">Base Model: RCNZ Cartoon 3d</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/30.png" alt="Image">
-      <div class="caption">Input Image</div>
+<div class="content">
+  <h2 style="text-align: center;"><strong>Gallery</strong></h2>
+  <h3>Image Animation based on text</h3>
+  <div class="gallery">
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/real/lighthouse.jpg">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/real/1.gif">
+        <figcaption style="text-align: center;">lightning, lighthouse</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/real/2.gif">
+        <figcaption style="text-align: center;">sun rising, lighthouse</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/animation/real/3.gif">
+        <figcaption style="text-align: center;">fireworks, lighthouse</figcaption>
+      </figure>
     </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/30.gif" alt="Image">
-      <div class="caption">1boy is crying</div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/rcnz/harry.png">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/rcnz/1.gif">
+        <figcaption style="text-align: center;">1boy, smiling</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/rcnz/2.gif">
+        <figcaption style="text-align: center;">1boy playing magic fire</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/animation/rcnz/3.gif">
+        <figcaption style="text-align: center;">1boy waving hands</figcaption>
+      </figure>
     </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/31.gif" alt="Image">
-      <div class="caption">1boy smiling</div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/majic/majic_girl.jpg">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/majic/1.gif">
+        <figcaption style="text-align: center;">1girl is smiling</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/animation/majic/2.gif">
+        <figcaption style="text-align: center;">1girl is crying</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/animation/majic/3.gif">
+        <figcaption style="text-align: center;">1girl, snowing</figcaption>
+      </figure>
     </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/32.gif" alt="Image">
-      <div class="caption">1boy playing magic fire</div>
+    <h3><strong>Motion Magnitude Control</strong></h3>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/labrador.png">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/1.gif">
+        <figcaption style="text-align: center;">running(Small Motion)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/2.gif">
+        <figcaption style="text-align: center;">running(Moderate Motion)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/magnitude/3.gif">
+        <figcaption style="text-align: center;">running(Large Motion)</figcaption>
+      </figure>
     </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/33.png" alt="Image">
-      <div class="caption">Input Image</div>
+    <h3><strong>Style Transfer</strong></h3>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/concert.png">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/1.gif">
+        <figcaption style="text-align: center;">smiling(Real Style)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/2.gif">
+        <figcaption style="text-align: center;">crying(Real Style)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/style/3.gif">
+        <figcaption style="text-align: center;">singing(Real Style)</figcaption>
+      </figure>
     </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/33.gif" alt="Image">
-      <div class="caption">1man, smiling </div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/concert.png">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/4.gif">
+        <figcaption style="text-align: center;">smiling(3D Cartoon Style)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/5.gif">
+        <figcaption style="text-align: center;">crying(3D Cartoon Style)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/style/6.gif">
+        <figcaption style="text-align: center;">singing(3D Cartoon Style)</figcaption>
+      </figure>
     </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/34.gif" alt="Image">
-      <div class="caption">1man, raining</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/35.gif" alt="Image">
-      <div class="caption">1man, lightning</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/36.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/36.gif" alt="Image">
-      <div class="caption">1dog is walking </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/37.gif" alt="Image">
-      <div class="caption">1dog is jumping</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/38.gif" alt="Image">
-      <div class="caption">1dog is smiling</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/39.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/39.gif" alt="Image">
-      <div class="caption">1girl smiling</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/40.gif" alt="Image">
-      <div class="caption">1girl crying</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/41.gif" alt="Image">
-      <div class="caption">1girl walking</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/42.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/42.gif" alt="Image">
-      <div class="caption">1girl playing magic fire, style-swirlmagic, holy prophet, gentle expression, hooded, green pentagram symbols, headdress,  kneeling, praying, symmetrical composition, cathedral,   divine aura, religious icons,     sacred texts, filigree, swirling lights emanating,  chalice,  holy water, petals,   silver, reflections, holy fire</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/43.gif" alt="Image">
-      <div class="caption">1girl smiling, style-swirlmagic, holy prophet, gentle expression, hooded, green pentagram symbols, headdress,  kneeling, praying, symmetrical composition, cathedral,   divine aura, religious icons,     sacred texts, filigree, swirling lights emanating,  chalice,  holy water, petals,   silver, reflections, holy fire</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/44.gif" alt="Image">
-      <div class="caption">1girl crying, style-swirlmagic, holy prophet, gentle expression, hooded, green pentagram symbols, headdress,  kneeling, praying, symmetrical composition, cathedral,   divine aura, religious icons,     sacred texts, filigree, swirling lights emanating,  chalice,  holy water, petals,   silver, reflections, holy fire,</div>
-    </div>
+  </div>
 </div>
-<p class="dreambooth">Base Model: Lyriel</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/45.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/45.gif" alt="Image">
-      <div class="caption">1girl is crying </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/46.gif" alt="Image">
-      <div class="caption">1girl is smiling, white hair by atey ghailan, by greg rutkowski, by greg tocchini</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/47.gif" alt="Image">
-      <div class="caption">1girl in the wind, white hair by atey ghailan, by greg rutkowski, by greg tocchini</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/48.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/48.gif" alt="Image">
-      <div class="caption">fireworks, 1castle </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/49.gif" alt="Image">
-      <div class="caption">Fire, 1castle</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/50.gif" alt="Image">
-      <div class="caption">Lightning struck the castle</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/51.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/51.gif" alt="Image">
-      <div class="caption">1man is smiling </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/52.gif" alt="Image">
-      <div class="caption">1man, in the wind</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/53.gif" alt="Image">
-      <div class="caption">1man, fire</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/54.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/54.gif" alt="Image">
-      <div class="caption">clouds floating, painting by sargent and rhads and leyendecker and greg hildebrandt</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/55.gif" alt="Image">
-      <div class="caption">raining, painting by sargent and rhads and leyendecker and greg hildebrandt</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/56.gif" alt="Image">
-      <div class="caption">lightning, painting by sargent and rhads and leyendecker and greg hildebrandt</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/57.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/57.gif" alt="Image">
-      <div class="caption">stars shining, 1castle, official art, extremely detailed CG unity 8k wallpaper, perfect lighting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/58.gif" alt="Image">
-      <div class="caption">fireworks, 1castle, official art, extremely detailed CG unity 8k wallpaper, perfect lighting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/59.gif" alt="Image">
-      <div class="caption">raining, 1castle, official art, extremely detailed CG unity 8k wallpaper, perfect lighting</div>
-    </div>
-</div>
-<p class="dreambooth">Base Model: MajicMix Realistic</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/60.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/60.gif" alt="Image">
-      <div class="caption">4k, raining, mountain, path, masterpiece</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/61.gif" alt="Image">
-      <div class="caption">4k, snowing, mountain, path, masterpiece</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/62.gif" alt="Image">
-      <div class="caption">sun rising, mountain, path, masterpiece</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/63.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/63.gif" alt="Image">
-      <div class="caption">1girl is crying, photorealistic </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/64.gif" alt="Image">
-      <div class="caption">1girl is smiling, photorealistic</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/65.gif" alt="Image">
-      <div class="caption">1girl is sleeping, photorealistic</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/66.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/66.gif" alt="Image">
-      <div class="caption">1man is crying </div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/67.gif" alt="Image">
-      <div class="caption">1man is sleeping</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/68.gif" alt="Image">
-      <div class="caption">1man is smiling</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/69.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/69.gif" alt="Image">
-      <div class="caption">1girl is smiling, lowres,watermark</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/70.gif" alt="Image">
-      <div class="caption">1girl is crying, lowres,watermark</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/71.gif" alt="Image">
-      <div class="caption">1girl is sleeping, lowres,watermark</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/72.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/72.gif" alt="Image">
-      <div class="caption">1girl is smiling, lowres,watermark</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/73.gif" alt="Image">
-      <div class="caption">1girl is crying, lowres,watermark</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/74.gif" alt="Image">
-      <div class="caption">1girl is sleeping, lowres,watermark</div>
-    </div>
-</div>
-<p class="dreambooth">Base Model: TUSUN</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/75.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/75.gif" alt="Image">
-      <div class="caption">tusuncub is eating, cute tusuncub, tusun kitten, best quality</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/76.gif" alt="Image">
-      <div class="caption">tusuncub is sleeping, cute tusuncub, tusun kitten, best quality</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/77.gif" alt="Image">
-      <div class="caption">tusuncub is smiling, cute tusuncub, tusun kitten, best quality</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/78.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/78.gif" alt="Image">
-      <div class="caption">tusuncub is eating, cute tusuncub, tusun kitten, best quality, winter scene</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/79.gif" alt="Image">
-      <div class="caption">tusuncub is sleeping, cute tusuncub, tusun kitten, best quality, winter scene</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/80.gif" alt="Image">
-      <div class="caption">tusuncub is smiling, cute tusuncub, tusun kitten, best quality, winter scene</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/81.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/81.gif" alt="Image">
-      <div class="caption">tusuncub is eating, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/82.gif" alt="Image">
-      <div class="caption">tusuncub is sleeping, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/83.gif" alt="Image">
-      <div class="caption">tusuncub is smiling, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/84.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/84.gif" alt="Image">
-      <div class="caption">tusuncub is eating, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/85.gif" alt="Image">
-      <div class="caption">tusuncub is sleeping, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/86.gif" alt="Image">
-      <div class="caption">tusuncub is smiling, cute tusuncub, tusun kitten, best quality, pure background</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/87.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/87.gif" alt="Image">
-      <div class="caption">tusuncub is eating, cute tusuncub, tusun kitten, best quality, black background, simple background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/88.gif" alt="Image">
-      <div class="caption">tusuncub is sleeping, cute tusuncub, tusun kitten, best quality, black background, simple background</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/89.gif" alt="Image">
-      <div class="caption">tusuncub is smiling, cute tusuncub, tusun kitten, best quality, black background, simple background</div>
-    </div>
-</div>
-<p class="dreambooth">Base Model: FilmVelvia</p>
-  <div class="container">
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/90.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/90.gif" alt="Image">
-      <div class="caption">1girl is smiling, 1girl, solo, sexy pose, pensive woman, voluminous dress, intricate lace, embroidered gloves, feathered hat, curled hairdo, pale skin</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/91.gif" alt="Image">
-      <div class="caption">1girl is crying, 1girl, solo, sexy pose, pensive woman, voluminous dress, intricate lace, embroidered gloves, feathered hat, curled hairdo, pale skin</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/92.gif" alt="Image">
-      <div class="caption">1girl is waving hand, 1girl, solo, sexy pose, pensive woman, voluminous dress, intricate lace, embroidered gloves, feathered hat, curled hairdo, pale skin</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/93.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/93.gif" alt="Image">
-      <div class="caption">1girl in wind, young 1girl with braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/94.gif" alt="Image">
-      <div class="caption">1girl is smiling, young 1girl with braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/95.gif" alt="Image">
-      <div class="caption">1girl is crying, young 1girl with braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/96.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/96.gif" alt="Image">
-      <div class="caption">1girl is smiling, watercolor, pastel colors, ink, autumn lights, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait, extremely luminous bright design</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/97.gif" alt="Image">
-      <div class="caption">1girl is crying, watercolor, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait, extremely luminous bright design</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/98.gif" alt="Image">
-      <div class="caption">1girl is turning head, pastel colors, ink, autumn lights, pastel colors, ink, autumn lights, watercolor, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait, extremely luminous bright design</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/99.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/99.gif" alt="Image">
-      <div class="caption">1girl is smiling, watercolor, pastel colors, ink, autumn lights, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/100.gif" alt="Image">
-      <div class="caption">1girl is crying, watercolor, pastel colors, ink, autumn lights, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/101.gif" alt="Image">
-      <div class="caption">1girl is turning head, watercolor, pastel colors, ink, autumn lights, a beautiful woman, shoulder, hair ribbons, by agnes cecile, half body portrait</div>
-    </div>
-</div><div class="container">    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/img/102.png" alt="Image">
-      <div class="caption">Input Image</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/102.gif" alt="Image">
-      <div class="caption">1girl is walking, braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/103.gif" alt="Image">
-      <div class="caption">1girl is smiling, braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-    <div class="ab-image-caption">
-      <img src="DreamBooth_files/AnimateBench/PIA/104.gif" alt="Image">
-      <div class="caption">1girl is crying, braided hair and fluffy cat ears, dressed in Off-Shoulder Sundress, standing in a rustic farm setting</div>
-    </div>
-</div> -->
-</div>
+
   <script>
     var gifImage = document.getElementById('gif-image');
 
