@@ -7,7 +7,7 @@
 
 <body>
 <div class="content">
-  <h1><strong>PIA: Your Personalized Image Animator <br> via Plug-and-Play Modules in Text-to-Image Models</strong></h1>
+  <h1><span><img src="src/img/pia.png" style="height: 72px;"></span><strong> :Your Personalized Image Animator <br> via Plug-and-Play Modules in Text-to-Image Models</strong></h1>
   <div>
     <p id="authors">
       <a>Yiming Zhang <sup>1 2 † </sup></a>
@@ -36,7 +36,7 @@
       <a target="_blank", href="https://arxiv.org">
         <img src="src/img/th.png" alt="arxiv", style="width: 21px;">[Paper]
       </a>
-      <a target="_blank", href="https://github.com">
+      <a target="_blank", href="https://github.com/open-mmlab/PIA">
         <img src="src/img/github.png" alt="github", style="width: 21px;">[Code]
       </a>
       <a target="_blank", href="https://openxlab.org.cn/">
@@ -51,8 +51,8 @@
     controllability by text, and the compatibility with various personalized T2I models without specific tuning. 
   </p>
   <div style="text-align: center;">
-    <video width="640" height="480" controls="">
-          <source src="src/video/video_pre_v1.mp4" type="video/mp4">
+    <video width="960" controls="">
+          <source src="src/video/video_pre.mp4" type="video/mp4">
           Your browser does not support the video tag.
     </video>
   </div>
@@ -99,6 +99,37 @@
 </div>
 <div class="content">
   <h2 style="text-align: center;"><strong>Gallery</strong></h2>
+  <h3><span><img src="src/img/christmas_tree.png" alt="" style="height: 20px;"></span><span style="color: #05c20f">Merry</span> <span style="color: #f14040">Christmas!</span></h3>
+  <div class="gallery">
+    <div class="row" style="justify-content: space-evenly; padding: 0;">
+      <figure style="width: 100%;margin: 0 0; text-align: center;">
+        <img src="src/gallery/christmas/yiming1.gif" style="height: 180px; width: auto;">
+        <figcaption style="text-align: center;">Yiming Zhang</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: 0 0; text-align: center;">
+        <img src="src/gallery/christmas/zhening.gif" style="height: 180px; width: auto;">
+        <figcaption style="text-align: center;">Zhening Xing</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: 0 0; text-align: center;">
+        <img src="src/gallery/christmas/yanhong.gif" style="height: 180px; width: auto;">
+      <figcaption style="text-align: center;">Yanhong Zeng</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: 0 0; text-align: center;">
+        <img src="src/gallery/christmas/youqing.gif" style="height: 180px; width: auto;">
+      <figcaption style="text-align: center;">Youqing Fang</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: 0 0; text-align: center;">
+        <img src="src/gallery/christmas/chenkai.gif" style="height: 180px; width: auto;">
+      <figcaption style="text-align: center;">Kai Chen</figcaption>
+      </figure>
+    </div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0; text-align: center;">
+        <img src="src/gallery/christmas/ai_plaza.gif" style="height: auto; width: 100%;">
+        <figcaption style="text-align: center;">Shanghai Artificial Intelligence Laboratory</figcaption>
+      </figure>
+    </div>
+  </div>
   <h3>Image Animation based on text</h3>
   <div class="gallery">
     <div class="row">
@@ -173,6 +204,42 @@
         <img src="src/gallery/magnitude/3.gif">
         <figcaption style="text-align: center;">running(Large Motion)</figcaption>
       </figure>
+    </div> 
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/bear/bear.jpg">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/bear/1.gif">
+        <figcaption style="text-align: center;">walking(Small)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/bear/2.gif">
+        <figcaption style="text-align: center;">walking(Moderate)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/magnitude/bear/3.gif">
+        <figcaption style="text-align: center;">walking(Large)</figcaption>
+      </figure>
+    </div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/genshin/genshin.jpg">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/genshin/1.gif">
+        <figcaption style="text-align: center;">cherry blossom(Small)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/magnitude/genshin/2.gif">
+        <figcaption style="text-align: center;">cherry blossom(Moderate)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/magnitude/genshin/3.gif">
+        <figcaption style="text-align: center;">cherry blossom(Large)</figcaption>
+      </figure>
     </div>
     <h3><strong>Style Transfer</strong></h3>
     <div class="row">
@@ -209,6 +276,24 @@
       <figure style="width: 100%; margin: auto 0;">
         <img src="src/gallery/style/6.gif">
         <figcaption style="text-align: center;">singing(3D Cartoon Style)</figcaption>
+      </figure>
+    </div>
+    <div class="row">
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/anya/1.jpg">
+        <figcaption style="text-align: center;">Input Image</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/anya/1.gif">
+        <figcaption style="text-align: center;">smiling(3D Cartoon Style)</figcaption>
+      </figure>
+      <figure style="width: 100%;margin: auto 0;">
+        <img src="src/gallery/style/anya/2.gif">
+        <figcaption style="text-align: center;">open mouth(3D Cartoon Style)</figcaption>
+      </figure>
+      <figure style="width: 100%; margin: auto 0;">
+        <img src="src/gallery/style/anya/3.gif">
+        <figcaption style="text-align: center;">crying, pout(3D Cartoon Style)</figcaption>
       </figure>
     </div>
   </div>
